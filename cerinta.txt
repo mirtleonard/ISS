@@ -8,18 +8,4 @@ introdus;
 • programatorul vizualizeaza lista bug-urilor; de asemenea, programatorul poate selecta un bug
 din lista si poate declansa un buton prin care declara ca bug-ul a fost eliminat, caz în care bugul este scos din lista tuturor programatorilor. 
 
-cazuri de utilizare:
-0 login?(Interfete diferite pentru programator/verificator?)
-1 Inregistrare bug(denumire, descriere) - verificator
-2 Vizualizare bug-uri(actualizare in real time lista bug-uri) - programator
-3 declara bug rezolvat - programator
-
-
-Iteratii:
-
-2 Cazuri de utilizare + document descriere cazuri
-3 repository
-4 iteratii 
-5 ui scene builder
-6 model conceptual?
 
