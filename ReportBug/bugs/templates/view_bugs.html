@@ -1,0 +1,36 @@
+{%extends "base.html" %}
+{%block title%} bugs {%endblock%}
+{%block content%}
+<div>
+    <div class="container d-flex justify-content-center">
+        <form action="{% url 'logout' %}" id="logout" method="GET"></form>
+        <form action="{% url 'register_bug' %}" id="register_bug" method="GET"></form>
+        <div class="card" style="width:400px; margin-top:20VH ">
+            <div class="card-header d-flex justify-content-between">
+                <button type="submit" class="btn btn-info" form="register_bug">Register Bug</button>
+                <button type="submit" class="btn btn-info" form="logout">Log Out</button>
+            </div>
+            <div class="card-body" style="overflow-x : auto; max-height : 60VH">
+                {% if bugs %}
+                    {% for bug in bugs %}
+                        <div class="card m-2">
+                            <div class="card-header d-flex justify-content-center">
+                                {{bug.title}}
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{bug.description}}</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <p class="card-text">Created by: {{bug.creator}}</p>
+                                <p class="card-text">Created on: {{bug.date_reported}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="card-text">No bugs registered yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

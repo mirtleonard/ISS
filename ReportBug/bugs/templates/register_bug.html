@@ -1,0 +1,33 @@
+{%extends "base.html" %}
+{%block title%} bugs {%endblock%}
+{%load static%}
+{%block content%}
+<div>
+  <div class="container d-flex justify-content-center">
+    <form action="{% url 'logout' %}" id="logout" method="GET"></form>
+    <form action="{% url 'view_bugs' %}" id="view_bugs" method="GET"></form>
+    <div class="card" style="width:400px; margin-top:20VH ">
+      <div class="card-header d-flex justify-content-between">
+        <button type="submit" class="btn btn-info" form="view_bugs">View Bugs</button>
+        <button type="submit" class="btn btn-info" form="logout">Log Out</button>
+      </div>
+      <form action ="{% url 'register_bug' %}" id="register_bug" method="POST">
+        {% csrf_token %}
+        <div class="card-body">
+          <div class="form-group">
+            <label>Bug Title:</label>
+            <input type="text" class="form-control" name="title">
+          </div>
+          <div class="form-group">
+            <label>Bug Description:</label>
+            <textarea class="form-control" name="description"> </textarea>
+          </div>
+        </div>
+      </form>
+      <div class = "card-footer d-flex justify-content-center">
+        <button type="submit" class="btn btn-info d-flex justify-content-center" form="register_bug">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
